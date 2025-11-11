@@ -1,0 +1,17 @@
+# Import the class for defining Hugging Face pipelines
+from langchain_huggingface import HuggingFacePipeline
+
+# Define the LLM from the Hugging Face model ID
+llm = HuggingFacePipeline.from_model_id(
+    model_id="crumb/nano-mistral",
+    task="text-generation",
+    pipeline_kwargs={"max_new_tokens": 20}
+)
+
+prompt = "Hugging Face is"
+
+# Invoke the model
+response = llm.invoke(prompt)
+print(response)
+
+# Hugging Face is a great way to get a little bit of a break from the stresses of life. It
